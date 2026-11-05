@@ -144,6 +144,15 @@ a{color:#0B4FD8}a:hover{color:#083A9E}
 @keyframes popM{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:none}}
 .hot{border-radius:10px}
 }
+@media (max-height:560px) and (min-width:721px){
+.stage{width:min(100%,calc((100vh - 96px) * 1.776));margin:0 auto}
+.pop{position:fixed!important;top:10px!important;bottom:10px;left:auto!important;right:10px;width:min(400px,46vw)!important;max-height:none;transform:none;overflow-y:auto;-webkit-overflow-scrolling:touch;animation:popSide .4s cubic-bezier(.2,1.2,.4,1) both}
+@keyframes popSide{0%{opacity:0;transform:translateX(40px)}100%{opacity:1;transform:none}}
+.pop.ghost{display:none}
+.pbody{padding:16px;gap:8px}
+.scrim{display:block;position:fixed;inset:0;z-index:4;border:0;padding:0;background:rgba(6,20,60,.35);animation:appear .25s both}
+.dhint{display:none}
+}
 @media (prefers-reduced-motion:reduce){.stage,.fold,.leaf,.shadeF,.shadeB,.baseShade,.mshade,.layer,.hint,.pop,.mcover,.mcard,.ovopen{transition-duration:.01s!important;transition-delay:0s!important;animation-duration:.01s!important;animation-delay:0s!important}}
 
 .scrim[hidden],.opener[hidden]{display:none!important}
@@ -156,7 +165,7 @@ a{color:#0B4FD8}a:hover{color:#083A9E}
     <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grid"></div>
   </div>
   <div style="position: relative; z-index: 1; min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; padding: 20px 16px 40px">
-    <div style="position: absolute; top: 6px; left: 10px; font-size: 9px; letter-spacing: 2px; color: #0B2A6B; opacity: 0.18">AVISION · Rev10</div>
+    <div style="position: absolute; top: 6px; left: 10px; font-size: 9px; letter-spacing: 2px; color: #0B2A6B; opacity: 0.18">AVISION · Rev11</div>
     <div style="width: 100%; max-width: 1280px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px">
       <div style="display: flex; align-items: baseline; gap: 10px">
         <span style="font-weight: 800; font-size: 20px; letter-spacing: 0.5px; color: #0B2A6B">ASSURICH</span>
