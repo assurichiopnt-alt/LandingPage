@@ -144,7 +144,10 @@ a{color:#0B4FD8}a:hover{color:#083A9E}
 @keyframes popM{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:none}}
 .hot{border-radius:10px}
 }
-@media (max-height:560px) and (min-width:721px){
+.pop.side{position:fixed!important;top:10px!important;bottom:10px;left:auto!important;right:10px;width:min(400px,calc(100vw - 20px))!important;transform:none;overflow-y:auto;-webkit-overflow-scrolling:touch;animation:popSide .4s cubic-bezier(.2,1.2,.4,1) both;z-index:6}
+@keyframes popSide{0%{opacity:0;transform:translateX(40px)}100%{opacity:1;transform:none}}
+.pop.side .pbody{padding:16px;gap:8px}
+@media (max-height:600px) and (min-width:721px){
 .stage{width:min(100%,calc((100vh - 96px) * 1.776));margin:0 auto}
 .pop{position:fixed!important;top:10px!important;bottom:10px;left:auto!important;right:10px;width:min(400px,46vw)!important;max-height:none;transform:none;overflow-y:auto;-webkit-overflow-scrolling:touch;animation:popSide .4s cubic-bezier(.2,1.2,.4,1) both}
 @keyframes popSide{0%{opacity:0;transform:translateX(40px)}100%{opacity:1;transform:none}}
@@ -165,7 +168,7 @@ a{color:#0B4FD8}a:hover{color:#083A9E}
     <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grid"></div>
   </div>
   <div style="position: relative; z-index: 1; min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; padding: 20px 16px 40px">
-    <div style="position: absolute; top: 6px; left: 10px; font-size: 9px; letter-spacing: 2px; color: #0B2A6B; opacity: 0.18">AVISION · Rev11</div>
+    <div style="position: absolute; top: 6px; left: 10px; font-size: 9px; letter-spacing: 2px; color: #0B2A6B; opacity: 0.18">AVISION · Rev12</div>
     <div style="width: 100%; max-width: 1280px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px">
       <div style="display: flex; align-items: baseline; gap: 10px">
         <span style="font-weight: 800; font-size: 20px; letter-spacing: 0.5px; color: #0B2A6B">ASSURICH</span>
@@ -400,7 +403,19 @@ a{color:#0B4FD8}a:hover{color:#083A9E}
     [top, h, d, list, ctas].forEach(function (n) { body.appendChild(n); });
     p.appendChild(bg); p.appendChild(veil); p.appendChild(body);
     pops.appendChild(p);
+    fitPop(p);
   }
+
+  // Popup taller than the screen (landscape phones, small windows): show it as a scrollable side panel
+  function fitPop(p) {
+    if (window.innerWidth <= 720) return;
+    var tooTall = p.offsetHeight > window.innerHeight - 24 || window.innerHeight < 600;
+    p.classList.toggle('side', tooTall);
+    scrim.hidden = !(state.pinned || tooTall) ;
+    if (tooTall) { scrim.style.display = 'block'; scrim.style.position = 'fixed'; scrim.style.inset = '0'; scrim.style.zIndex = '4'; scrim.style.background = 'rgba(6,20,60,.35)'; scrim.style.border = '0'; }
+  }
+  window.addEventListener('resize', function () { var p = pops.firstChild; if (p) fitPop(p); });
+  window.addEventListener('orientationchange', function () { var p = pops.firstChild; if (p) setTimeout(function () { fitPop(p); }, 300); });
 
   function open() {
     clearTimeout(autoTimer);
