@@ -168,7 +168,7 @@ a{color:#0B4FD8}a:hover{color:#083A9E}
     <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grid"></div>
   </div>
   <div style="position: relative; z-index: 1; min-height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; padding: 20px 16px 40px">
-    <div style="position: absolute; top: 6px; left: 10px; font-size: 9px; letter-spacing: 2px; color: #0B2A6B; opacity: 0.18">AVISION · Rev14</div>
+    <div style="position: absolute; top: 6px; left: 10px; font-size: 9px; letter-spacing: 2px; color: #0B2A6B; opacity: 0.18">AVISION · Rev15</div>
     <div style="width: 100%; max-width: 1280px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px">
       <div style="display: flex; align-items: baseline; gap: 10px">
         <span style="font-weight: 800; font-size: 20px; letter-spacing: 0.5px; color: #0B2A6B">ASSURICH</span>
@@ -284,7 +284,7 @@ a{color:#0B4FD8}a:hover{color:#083A9E}
     { id: 'p1', x: 63, y: 8.5, w: 33.1, h: 40.9, tag: 'PILLAR 1', title: 'Robotics Automation',
       body: 'Collaborative robot arms packaged as ready-to-run cells for real factory tasks.',
       points: ['Cobot brands: CRP · IIMT · GZCR · Jaten · Insitools', 'Machine tending, pick & place, palletizing, welding', 'Packages priced by task — [YOUR PRICE]'],
-      cta: 'See cobot packages' },
+      cta: 'See cobot packages', href: 'https://www.robota1.com' },
     { id: 'p2', x: 29.4, y: 8.5, w: 32.3, h: 40.9, tag: 'PILLAR 2', title: 'Engine Rebuild Equipment / Workshop',
       body: 'Equipment and workshop solutions for engine rebuilding and overhaul.',
       points: ['[KEY EQUIPMENT LINE 1]', '[KEY EQUIPMENT LINE 2]', 'Installation & training by ASSURICH engineers'],
@@ -397,7 +397,7 @@ a{color:#0B4FD8}a:hover{color:#083A9E}
       row.innerHTML = CHECK; row.appendChild(el('span', '', t)); list.appendChild(row);
     });
     var ctas = el('div'); ctas.style.cssText = 'display:flex;flex-wrap:wrap;gap:8px;margin-top:4px';
-    var a1 = el('a', 'btn', c.cta); a1.href = c.href || '#'; if (c.href) { a1.target = '_blank'; a1.rel = 'noopener'; } a1.style.cssText = 'background:#0B4FD8;color:#FFFFFF';
+    var a1 = el('a', 'btn', c.cta); a1.href = c.href || '#'; a1.style.cssText = 'background:#0B4FD8;color:#FFFFFF';
     var a2 = el('a', 'btn', 'Talk to an engineer'); a2.href = '#'; a2.style.cssText = 'background:#FFF4DF;color:#8A4B00';
     ctas.appendChild(a1); ctas.appendChild(a2);
     [top, h, d, list, ctas].forEach(function (n) { body.appendChild(n); });
